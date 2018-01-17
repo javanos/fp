@@ -150,43 +150,12 @@
 				</executions>
 			</plugin>
 
-
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.2</version>
-				<configuration>
-					<altDeploymentRepository>
-						Repo.stage::default::file://${project.build.directory}/repo-stage
-					</altDeploymentRepository>
-				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
-				<configuration>
-					<!-- Github settings -->
-					<server>github</server>
-					<repositoryName>fp</repositoryName>
-					<repositoryOwner>javanos</repositoryOwner>
-					<branch>refs/heads/dependency</branch>
-					<message>Artifacts for ${project.name}/${project.artifactId}/${project.version}</message>
-					<noJekyll>true</noJekyll>
-					<!-- Deployment values -->
-					<outputDirectory>${project.build.directory}/repo-stage</outputDirectory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>deploy</phase>
-						<goals>
-							<goal>site</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 
